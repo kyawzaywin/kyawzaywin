@@ -1,0 +1,40 @@
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-3">Register To Be A Member</h1>
+    <div class="col-md-6 mx-auto">
+        <form class="bg-white rounded py-5"
+        [formGroup]="form"
+        (ngSubmit)="startRegister(form.value)">
+             
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="isAuth">
+            <strong>Register Successfully!</strong> <a routerLink="/auth/login"> <strong class="pl-5">Login again...</strong></a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+                <div class="form-group ">
+                        
+                        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter Name">
+                        <small id="nameRequired" class="form-text text-danger" *ngIf="form.get('name').hasError('required')">name Required</small>
+
+                      </div>
+            <div class="form-group ">
+              
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+             <small id="emailRequired" class="form-text text-danger" *ngIf="form.get('email').hasError('required')">Email Required</small>
+             <small id="emailValid" class="form-text text-danger" *ngIf="form.get('email').hasError('email')">Not Valid Email</small>
+
+            </div>
+            <div class="form-group">
+            
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password" required minlength="6">
+              <small id="passwordRequired" class="form-text text-danger" *ngIf="form.get('password').hasError('required')">password Required</small>
+              <small id="passwordLength" class="form-text text-danger" *ngIf="form.get('password').hasError('minlength')">Password must be at least 6 character</small>
+
+            </div>
+           
+            <a routerLink="/auth/login" class="text-muted float-left">Already Member? Login to read post!!!</a>
+                    <button type="submit" [disabled]="!form.valid"   class="btn btn-primary btn-sm float-right">Register</button>
+           
+          </form>
+    </div>
+</div>

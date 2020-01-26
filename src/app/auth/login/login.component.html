@@ -1,0 +1,29 @@
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-3">Login To Read Post</h1>
+    <div class="col-md-6 mx-auto">
+        <form class="bg-white rounded py-5"
+        [formGroup]="form"
+            (ngSubmit)="startLogin(form.value)">
+            <div class="form-group ">
+            
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  formControlName="email">
+              <small id="emailRequired" class="form-text text-danger" *ngIf="form.get('email').hasError('required')">Email Required</small>
+              <small id="emailValid" class="form-text text-danger" *ngIf="form.get('email').hasError('email')">Not Valid Email</small>            </div>
+            <div class="form-group">
+             
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"  formControlName="password">
+              <small id="passwordRequired" class="form-text text-danger" *ngIf="form.get('password').hasError('required')">password Required</small>
+              <small id="passwordLength" class="form-text text-danger" *ngIf="form.get('password').hasError('minlength')">Password must be at least 6 character</small>
+
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <a routerLink="/auth/register" class="text-muted float-left">Not Member? Register First!!!</a>
+                    <button type="submit" [disabled]="!form.valid"  class="btn btn-primary btn-sm float-right">Login</button>
+            
+            
+          </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+
+
+
+<h1>This is an authenticate Route.Only access Members who are login..</h1>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let user of users">
+            <div class="card bg-dark text-white">
+                <p>{{user.name}}</p>
+                <p>{{user.email}}</p>
+            </div>
+        </div>
+    </div>
+</div>
