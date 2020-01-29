@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
    @Injectable()
    export class LocalService{
-    BASE_URL="http://kyawzaywin.herokuapp.com/";
+    BASE_URL="https://kyawzaywin.herokuapp.com/";
     userUrl=this.BASE_URL+'usersinfo';
    
     loginUrl=this.BASE_URL+'user/api/login';
